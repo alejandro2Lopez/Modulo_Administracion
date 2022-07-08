@@ -12,6 +12,14 @@ module Lenguajes1
     config.load_defaults 7.0
 
 
+    config.middleware.insert_before 0,Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any,methods: :any
+      end  
+    end
+
+
     I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{yml}')]
     I18n.default_locale = :es
     # Configuration for the application, engines, and railties goes here.

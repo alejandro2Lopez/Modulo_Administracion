@@ -5,23 +5,37 @@
       = "Lista de Usuarios"
       .float-right
         = link_to "Nuevo Usuario", new_user_path, class: "btn btn-primary"
+
   %table.table.table-striped
     %thread
       %tr
+        %th= "Id"
+        %th= "    "
         %th= t('activerecord.attributes.user.name')
+        %th= "    "
         %th= t('activerecord.attributes.user.password')
+        %th= "    "
         %th= t('activerecord.attributes.user.mail')
+        %th= "    "
         %th= t('activerecord.attributes.user.address')
+        %th= ""
         %th= t('activerecord.attributes.user.role')
         %th        
     %tbody
       - @users.each do |user|
         %tr
-          %td= user.name
-          %td= user.password
-          %td= user.mail
-          %td= user.address
-          %td= t("activerecord.attributes.user.roles.#{user.role}")
+        
+          %td= user.id
+          %th= "    "
+          %td= user.name + "  "
+          %td= "   "
+          %td= user.password + "    "
+          %td= "   "
+          %td= "   " + user.mail + "  "
+          %td= "   "
+          %td= user.address + "  "          
+          %td= "    "
+          %td= t("activerecord.attributes.user.roles.#{user.role}") + "  "
           %td= link_to "Ver", user, class: "btn btn-info"
           %td= link_to "Editar", edit_user_path(user), class: "btn btn-success"
           %td= link_to "Eliminar", user, method: :delete, class: "btn btn-danger",
