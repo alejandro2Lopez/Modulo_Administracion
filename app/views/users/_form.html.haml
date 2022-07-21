@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header_new
     = form_for @user, validate: true do |f|
@@ -6,7 +7,7 @@
         = f.text_field :name, autofocus: true, class: "form-control"
       .form-group.ml-4.mr-4
         = f.label t('activerecord.attributes.user.password'), class: "form-label required"
-        = f.text_field :password, autofocus: true, class: "form-control"
+        = f.password_field :password, autofocus: true, class: "form-control"
       .form-group.ml-4.mr-4
         = f.label  t('activerecord.attributes.user.mail'), class: "form-label required"
         = f.text_field :mail, autofocus: true, class: "form-control"

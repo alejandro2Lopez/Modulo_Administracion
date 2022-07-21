@@ -17,37 +17,30 @@ class DishesController < ApplicationController
   def create
     @dish = Dish.new(dish_params)
 
-    respond_to do |format|
-      if @dish.save
-        format.html { redirect_to dish_url(@dish), notice: 'Dish was successfully created.' }
-        format.json { render :show, status: :created, location: @dish }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
-      end
+    if @dish.save
+      flash[:success] = 'Dish was successfully created.'
+      redirect_to dish_url(@dish)
+    else
+      flash[:danger] = 'Check the information'
+      redirect_to new_dish_path
     end
   end
 
-
   def update
-    respond_to do |format|
-      if @dish.update(dish_params)
-        format.html { redirect_to dish_url(@dish), notice: 'Dish was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dish }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
-      end
+    if @dish.update(dish_params)
+      flash[:success] = 'Dish was successfully edited.'
+      redirect_to dish_url(@dish)
+    else
+      flash[:danger] = 'Check the information'
+      redirect_to new_dish_path
     end
   end
 
   def destroy
     @dish.destroy
 
-    respond_to do |format|
-      format.html { redirect_to dishes_url, notice: 'Dish was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Dish was successfully destroyed.'
+    redirect_to dishes_url
   end
 
   private

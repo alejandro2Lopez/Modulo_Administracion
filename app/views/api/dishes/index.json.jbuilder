@@ -1,5 +1,5 @@
 json.array! @dishes do |dish|
-  if dish.isEnable == 'Yes'
+  if dish.isEnable == "enable"
     json.id dish.id
     json.name dish.name
     json.cost dish.cost

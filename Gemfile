@@ -8,6 +8,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'bootsnap', require: false
 gem 'email_validator'
 gem 'importmap-rails'
+gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'jbuilder'
 gem 'jquery-rails'

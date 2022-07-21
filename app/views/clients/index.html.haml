@@ -16,11 +16,11 @@
     %table.table.table-striped
       %thread
         %tr
-          %th= t('activerecord.attributes.client.name')
-          %th= t('activerecord.attributes.client.last_name')
-          %th= t('activerecord.attributes.client.email')
-          %th= t('activerecord.attributes.client.adress')
-          %th= t('activerecord.attributes.client.block')
+          %th= t('activerecord.attributes.user.name')
+          %th= t('activerecord.attributes.user.last_name')
+          %th= t('activerecord.attributes.user.mail')
+          %th= t('activerecord.attributes.user.address')
+          %th=  t('activerecord.attributes.user.statu')
           %th
           %th
           %th
@@ -32,7 +32,7 @@
             %td= client.email
             %td= client.adress
             %td
-              -if client.block == "No"
+              -if client.block == "enable"
                 %i.fa_green.fa-solid.fa-lock-open.fa-1.5x
               -else 
                 %i.fa_red.fa-solid.fa-lock.fa-1.5x

@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header
     %p{:style => "color: green"}= notice
@@ -18,7 +19,6 @@
       %thread
         %tr
           %th= t('activerecord.attributes.user.name')
-          %th= t('activerecord.attributes.user.password')
           %th= t('activerecord.attributes.user.mail')
           %th= t('activerecord.attributes.user.address')
           %th= t('activerecord.attributes.user.role')
@@ -29,7 +29,6 @@
         - @users.each do |user|
           %tr
             %td= user.name
-            %td= user.password
             %td= user.mail
             %td= user.address
             %td= t("activerecord.attributes.user.roles.#{user.role}")

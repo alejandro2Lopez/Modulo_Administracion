@@ -1,8 +1,8 @@
 module Api
   class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :set_user, only: %i[ show edit update destroy ]
-  
+    before_action :set_user, only: %i[show edit update destroy]
+
     def index
       @users = User.all
     end
@@ -22,7 +22,7 @@ module Api
         if @user.password == params[:password] && @user != :undefined
           @isValidate = true
           render 'api/users/showValidates', status: :created
-        else       
+        else
           @isValidate = false
           render 'api/users/showValidates', status: :created
         end
@@ -33,27 +33,27 @@ module Api
     end
 
     def update
-
       if @user.update(user_params)
         render 'api/users/show', status: :ok
       else
-        render :edit, status: :unprocessable_entity 
+        render :edit, status: :unprocessable_entity
       end
     end
 
     def destroy
       @user.destroy
-    
+
       render 'api/users/show', status: :ok
     end
 
     private
-      def set_user
-        @user = User.find(params[:id])
-      end
 
-      def user_params
-        params.require(:user).permit(:name)
-      end
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name)
+    end
   end
 end

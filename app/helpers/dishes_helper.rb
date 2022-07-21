@@ -1,7 +1,7 @@
 module DishesHelper
   def method_Enable
-    Dish.enables.keys.map do |enable|
-      [t("activerecord.attributes.options.option.#{enable}"), enable]
+    Dish.isEnables.keys.map do |isEnable|
+      [t("activerecord.attributes.dish.isEnable.#{isEnable}"), isEnable]
     end
   end
 end

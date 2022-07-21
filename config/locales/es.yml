@@ -10,7 +10,8 @@ es:
     saving: Guardando
     accept: Aceptar
     cancel: Cancelar
-    block: Bloquear %{model}
+    submit: Ingresar
+    block: Bloqueado
     manage: Administrar %{model}
     menu_Administrate: Menú administrativo
     do_you_want_to_delete: Desea eliminar el %{model}
@@ -41,22 +42,27 @@ es:
     attributes:
       dish:
         name: Nombre 
-        description: Descripcion
+        description: Descripción
         cost: Costo
-        enable: Habilitado
+        condition: Condición
         image: Imagen        
-        enable:
-          Yes: Si.
-          No:  No.
+        isEnable:
+          enable: Hablitado
+          disabled:  Inhabilitado
       user:
         name: Nombre
+        last_name: Apellido
+        full_name: Nombre completo
         password: Contraseña
         mail: Correo
         address: Direccion
+        block: Bloqueado
+        statu: Estado
         role: Rol
         roles:
-          administrator: administrador
-          chef: cocinero
+          administrator: Administrador
+          chef: Cocinero
+      
 
         
 
