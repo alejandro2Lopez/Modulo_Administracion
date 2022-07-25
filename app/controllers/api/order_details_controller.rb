@@ -16,12 +16,23 @@ module Api
     def edit; end
 
     def create
-      @order_detail = OrderDetail.new(order_detail_params)
-
-      if @order_detail.save
-        render 'api/order_details/index', status: :created
+      puts params[:isConfirm]
+      if params[:isConfirm] == 1
+        @ords = OrderDetail.all
+        @order_dils = @ord.map do |order_dil|
+          @order_d = OrderDetail.find_by(client_id: params[:client_id])
+          @dishess = + @order_d.dish.name, ',', @dishess
+          @order_d.client.name
+          @order_d.destroy
+        end
+        puts @dishess, params[:cost]
       else
-        render json: @order_detail.errors, status: :unprocessable_entity
+        @order_detail = OrderDetail.new(order_detail_params)
+        if @order_detail.save
+          render 'api/order_details/index', status: :created
+        else
+          render json: @order_detail.errors, status: :unprocessable_entity
+        end
       end
     end
 
@@ -37,7 +48,7 @@ module Api
     end
 
     def order_detail_params
-      params.require(:order_detail).permit(:dish_id, :client_id, :isConfirm)
+      params.require(:order_detail).permit(:dish_id, :client_id, :isConfirm, :cost)
     end
   end
 end
