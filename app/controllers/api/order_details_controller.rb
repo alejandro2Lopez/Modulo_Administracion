@@ -25,6 +25,7 @@ module Api
           @order_d.destroy
         end
         puts @dishess, params[:cost]
+        Order.create!(dishesDesc: @dishess.to_s, cost: params[:cost], date: Time.now, state: 1, client_id: params[:client_id])
       else
         @order_detail = OrderDetail.new(order_detail_params)
         if @order_detail.save
