@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_154815) do
     t.string "password"
     t.string "email"
     t.string "adress"
-    t.integer "block", default: 0
+    t.integer "block", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

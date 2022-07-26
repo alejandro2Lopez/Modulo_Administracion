@@ -6,7 +6,7 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :password
       t.string :email
       t.string :adress
-      t.integer :block, default: 0
+      t.integer :block, default: 1
       t.timestamps
     end
   end
