@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :clients
   resources :dishes
   resources :users
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :dishes
     resources :order_details
     resources :users
+    resources :orders
   end
 end
 
