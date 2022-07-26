@@ -1,11 +1,19 @@
+= render "layouts/flash"
 .div.m-4
   .page.header
     %p{:style => "color: green"}= notice
     %h1.mb-4
       = t('application.list_of', model: t('activerecord.modules.order.other'))
-    .float-down  
-      = link_to t('application.new', model: t('activerecord.modules.order.one')), new_order_detail_path, class: "button1 button2"
+  %div
+    = search_form_for @q do |f|
+    
+      \#{f.search_field :order_date_cont, :type => "text2"}
+      = button_tag( :class => "button button2") do
+        Buscar
+        %i.fa-solid.fa-magnifying-glass
 
+      .float-right
+        = link_to t('application.new', model: t('activerecord.modules.order.one')), new_order_detail_path, class: "button1 button2"
   %div
     %table.table.table-striped
       %thread
@@ -18,19 +26,18 @@
           %th
           %th
           %th
-          %th
       %tbody
         - @order_details.each do |order_detail|
           %tr
-            %td= order_detail.order_date 
-            %td= order_detail.dish.name 
-            %td= order_detail.dish.description 
-            %td= order_detail.dish.cost 
+            %td= order_detail.order_date
+            %td= order_detail.dish.name
+            %td= order_detail.dish.description
+            %td= order_detail.dish.cost
             %td= t("activerecord.attributes.order_detail.states.#{order_detail.state}")
             %td
               = link_to  order_detail_path(order_detail) do
                 %span{:title => t('application.show')}
-
+                  %i.fa-black.fa-regular.fa-eye.fa-1.5x
                   
             %td
               = link_to edit_order_detail_path(order_detail) do

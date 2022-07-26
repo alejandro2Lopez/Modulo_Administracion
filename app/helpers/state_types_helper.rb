@@ -1,0 +1,2 @@
+module StateTypesHelper
+end

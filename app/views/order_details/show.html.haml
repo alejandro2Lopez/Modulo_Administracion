@@ -27,7 +27,7 @@
           =t('activerecord.modules.state.one')
         %h5 
           %p 
-            =  @order_detail.state
+            =  t("activerecord.attributes.order_detail.states.#{@order_detail.state}")
     .row.mt-3
       .offset-3.col-3
         = link_to t('application.back'), order_details_path, class: "button_Back button_Back"

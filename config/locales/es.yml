@@ -1,7 +1,7 @@
 es:
   application:
     list_of: Lista de %{model}
-    new: Nuevo %{model}
+    new: Nueva %{model}
     show: Mostrar 
     edit: Editar
     delete: Eliminar
@@ -31,8 +31,8 @@ es:
         one: chef
         other: chefs
       order:
-        one: orden
-        other: ordenes
+        one: Orden
+        other: Ordenes
       client:
         one: cliente
         other: clientes
@@ -42,6 +42,9 @@ es:
       order_detail:
         one: Pedido
         other: Pedidos
+      state_types:
+        one: Estado
+        other: Estados
     attributes:
       dish:
         name: Nombre 

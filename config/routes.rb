@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :state_types
   resources :orders
   resources :clients
   resources :dishes

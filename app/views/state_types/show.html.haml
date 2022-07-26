@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+= render @state_type
+%div
+  = link_to "Edit this state type", edit_state_type_path(@state_type)
+  |
+  \#{link_to "Back to state types", state_types_path}
+  
+  \#{button_to "Destroy this state type", @state_type, method: :delete}

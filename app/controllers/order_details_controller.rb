@@ -4,7 +4,8 @@ class OrderDetailsController < ApplicationController
   before_action :set_dishes
 
   def index
-    @order_details = OrderDetail.all
+    @q = OrderDetail.ransack(params[:q])
+    @order_details = @q.result
   end
 
   def show; end

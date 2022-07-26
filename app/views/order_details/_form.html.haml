@@ -1,4 +1,7 @@
 .div.m-4
+  .page.header 
+    %h1.mb-4
+      = t('application.new', model: t('activerecord.modules.order.one'))
   .page.header_new
     = form_for @order_detail, validate: true do |f|
       .form-group.ml-4.mr-4
