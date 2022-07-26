@@ -36,12 +36,12 @@
               %span.nav-text
                 =t('application.block', model: t('activerecord.modules.client.other'))
           %li.has-subnav
-            %a{:href => "#"}
+            %a{:href => order_details_path}
               %i.fa.fa-solid.fa-bell-concierge.fa-2x
               %span.nav-text             
                 =t('application.manage', model: t('activerecord.modules.order.other'))
           %li
-            %a{:href => "#"}
+            %a{:href => state_types_path}
               %i.fa.fa-solid.fa-clock-rotate-left.fa-2x
               %span.nav-text
                 =t('application.manage', model: t('activerecord.modules.state.other'))

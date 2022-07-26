@@ -1,0 +1,16 @@
+%p{:style => "color: green"}= notice
+%h1 Tipos Estado 
+#state_types
+  - @state_types.each do |state_type|
+    = render state_type
+    %p
+      = link_to "", state_type
+= link_to "", new_state_type_path
+
+%div
+  = button_tag( "A tiempo")
+  = button_tag( "Sobre Tiempo")
+  = button_tag( "Demorado")
+  = button_tag( "Anulado")
+  = button_tag( "Entregado")
+

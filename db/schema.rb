@@ -68,6 +68,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_192753) do
     t.integer "isConfirm", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "order_date"
+    t.integer "status"
+    t.integer "state"
     t.index ["client_id"], name: "index_order_details_on_client_id"
     t.index ["dish_id"], name: "index_order_details_on_dish_id"
   end

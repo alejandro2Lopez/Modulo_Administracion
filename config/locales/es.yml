@@ -1,7 +1,7 @@
 es:
   application:
     list_of: Lista de %{model}
-    new: Nuevo %{model}
+    new: Nueva %{model}
     show: Mostrar 
     edit: Editar
     delete: Eliminar
@@ -31,14 +31,20 @@ es:
         one: chef
         other: chefs
       order:
-        one: orden
-        other: ordenes
+        one: Orden
+        other: Ordenes
       client:
         one: cliente
         other: clientes
       state:
-        one: estado
-        other: estados
+        one: Estado
+        other: Estados
+      order_detail:
+        one: Pedido
+        other: Pedidos
+      state_types:
+        one: Estado
+        other: Estados
     attributes:
       dish:
         name: Nombre 
@@ -62,6 +68,23 @@ es:
         roles:
           administrator: Administrador
           chef: Cocinero
+      order:
+        state:
+        states:
+          on_time: A tiempo
+          over_time: Sobretiempo
+          delayed: Atrasado
+          canceled: Cancelado
+          delivered: Entregado
+      order_detail:
+        state:
+        states:
+          on_time: A tiempo
+          over_time: Sobretiempo
+          delayed: Atrasado
+          canceled: Cancelado
+          delivered: Entregado
+        order_date: Fecha
       
 
         

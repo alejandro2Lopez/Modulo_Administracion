@@ -1,0 +1,33 @@
+.div.m-4
+  .page.header_new
+    %h2 
+      =t('activerecord.modules.order_detail.one')
+    .card   
+      .container
+        %h5
+          =t('activerecord.attributes.order_detail.order_date')
+          %p 
+            = @order_detail.order_date
+        %h5 
+          =t('activerecord.modules.dish.one')
+        %h5 
+          %p
+          = @order_detail.dish.name
+        %h5
+          =t('activerecord.attributes.dish.description')
+        %h5 
+          %p 
+            =  @order_detail.dish.description
+        %h5
+          =t('activerecord.attributes.dish.cost')
+        %h5 
+          %p 
+            =  @order_detail.dish.cost
+        %h5
+          =t('activerecord.modules.state.one')
+        %h5 
+          %p 
+            =  t("activerecord.attributes.order_detail.states.#{@order_detail.state}")
+    .row.mt-3
+      .offset-3.col-3
+        = link_to t('application.back'), order_details_path, class: "button_Back button_Back"

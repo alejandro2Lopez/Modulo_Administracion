@@ -1,0 +1,14 @@
+= form_with(model: state_type) do |form|
+  - if state_type.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(state_type.errors.count, "error")
+        prohibited this state_type from being saved:
+      %ul
+        - state_type.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :type, style: "display: block"
+    = form.text_field :type
+  %div
+    = form.submit

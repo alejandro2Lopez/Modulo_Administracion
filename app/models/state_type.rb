@@ -1,0 +1,2 @@
+class StateType < ApplicationRecord
+end

@@ -1,0 +1,7 @@
+%h1 Editing state type
+= render "form", state_type: @state_type
+%br/
+%div
+  = link_to "Show this state type", @state_type
+  |
+  \#{link_to "Back to state types", state_types_path}
