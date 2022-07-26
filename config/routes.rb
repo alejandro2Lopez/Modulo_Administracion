@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :clients
   resources :dishes
   resources :users
-  
+  resources :order_details
+  resources :state_types
+
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
   root  'sessions#new'
