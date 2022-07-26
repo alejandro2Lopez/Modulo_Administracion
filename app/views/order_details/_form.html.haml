@@ -1,0 +1,28 @@
+.div.m-4
+  .page.header_new
+    = form_for @order_detail, validate: true do |f|
+      .form-group.ml-4.mr-4
+        = f.label t('activerecord.attributes.order_detail.order_date'), class: "form-label required"
+        = f.date_field :order_date, autofocus: true, class: "form-control"
+
+      .form-group.ml-4.mr-4 
+        = f.label t('activerecord.modules.state.one'), class: "form-label required"
+        = f.select(:state, options_for_select(states, @order_detail.state),
+                            {prompt: t('application.select')}, class: 'form-control')
+      
+      .form-group.ml-4.mr-4 
+        = f.label t('activerecord.modules.client.one'), class: "form-label required"
+        = f.select(:client_id, options_for_select(@clients, @order_detail.client),
+                            {prompt: t('application.select')}, class: "form-control")
+        
+      .form-group.ml-4.mr-4 
+        = f.label t('activerecord.modules.dish.one'), class: "form-label required"
+        = f.select(:dish_id, options_for_select(@dishes, @order_detail.dish),
+                            {prompt: t('application.select')}, class: 'form-control')
+    
+
+      .row
+        .offset-3.col-3
+          = link_to t('application.back'), order_details_path, class: "button_Back button_Back"
+        .col-3
+          = button_tag t('application.save'), class: "button_saving button_Back", 'data-disable-with': t('application.saving')

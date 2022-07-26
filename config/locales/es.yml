@@ -37,8 +37,11 @@ es:
         one: cliente
         other: clientes
       state:
-        one: estado
-        other: estados
+        one: Estado
+        other: Estados
+      order_detail:
+        one: Pedido
+        other: Pedidos
     attributes:
       dish:
         name: Nombre 
@@ -62,6 +65,23 @@ es:
         roles:
           administrator: Administrador
           chef: Cocinero
+      order:
+        state:
+        states:
+          on_time: A tiempo
+          over_time: Sobretiempo
+          delayed: Atrasado
+          canceled: Cancelado
+          delivered: Entregado
+      order_detail:
+        state:
+        states:
+          on_time: A tiempo
+          over_time: Sobretiempo
+          delayed: Atrasado
+          canceled: Cancelado
+          delivered: Entregado
+        order_date: Fecha
       
 
         

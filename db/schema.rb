@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_15_154815) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_25_232603) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,8 +68,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_154815) do
     t.integer "isConfirm", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "order_date"
+    t.integer "status"
+    t.integer "state"
     t.index ["client_id"], name: "index_order_details_on_client_id"
     t.index ["dish_id"], name: "index_order_details_on_dish_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date "date"
+    t.money "total_price", scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
