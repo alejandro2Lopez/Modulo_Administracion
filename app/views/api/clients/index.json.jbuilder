@@ -5,4 +5,5 @@ json.array! @clients do |client|
   json.email client.email
   json.adress client.adress
   json.password client.password
+  json.block client.block
 end

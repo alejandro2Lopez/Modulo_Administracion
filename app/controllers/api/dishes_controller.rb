@@ -1,7 +1,8 @@
 module Api
   class DishesController < ApplicationController
-    before_action :set_dish, only: %i[show edit update destroy]
     skip_before_action :verify_authenticity_token
+    before_action :set_dish, only: %i[show edit update destroy]
+    
     def index
       @q = Dish.ransack(params[:q])
       @dishes = @q.result

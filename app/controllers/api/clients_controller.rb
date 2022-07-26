@@ -5,6 +5,10 @@ module Api
     before_action :set_client, only: %i[show edit update]
     
 
+    def index
+      @clients = Client.all
+    end
+
     def show; end
 
     def new
@@ -17,7 +21,7 @@ module Api
       @client = Client.new(client_params)
 
       if @client.save
-        render 'api/clients/index', status: :created
+        render 'api/clients/show', status: :created
       else
         render json: @client.errors, status: :unprocessable_entity
       end
