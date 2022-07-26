@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header_new
     = form_for @dish, validate: true do |f|
@@ -12,7 +13,7 @@
         = f.text_field :cost, autofocus: true, class: "form-control"
 
       .form-group.ml-4.mr-4 
-        = f.label t('activerecord.attributes.dish.enable'), class: "form-label required"
+        = f.label t('activerecord.attributes.dish.condition'), class: "form-label required"
         = f.select(:isEnable, options_for_select(method_Enable, @dish.isEnable),
                             {prompt: t('application.select')}, class: 'form-control')
       %div>

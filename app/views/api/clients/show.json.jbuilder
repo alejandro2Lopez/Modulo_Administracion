@@ -5,4 +5,5 @@ json.client do
   json.email @client.email
   json.adress @client.adress
   json.password @client.password
+  json.block @client.block
 end

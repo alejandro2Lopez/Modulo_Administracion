@@ -1,0 +1,48 @@
+= render "layouts/flash"
+.div.m-4
+  .page.header
+    %p{:style => "color: green"}= notice
+    %h1.mb-4
+      = t('application.list_of', model: t('activerecord.modules.user.other'))
+  %div
+    = search_form_for @q do |f|
+    
+      \#{f.search_field :name_cont, :type => "text2"}
+      = button_tag( :class => "button button2") do
+        Buscar
+        %i.fa-solid.fa-magnifying-glass
+
+      .float-right
+        = link_to t('application.new', model: t('activerecord.modules.user.one')), new_user_path, class: "button1 button2"
+  %div
+    %table.table.table-striped
+      %thread
+        %tr
+          %th= t('activerecord.attributes.user.name')
+          %th= t('activerecord.attributes.user.mail')
+          %th= t('activerecord.attributes.user.address')
+          %th= t('activerecord.attributes.user.role')
+          %th
+          %th
+          %th
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.mail
+            %td= user.address
+            %td= t("activerecord.attributes.user.roles.#{user.role}")
+            %td
+              = link_to  user_path(user) do
+                %span{:title => t('application.show')}
+                  %i.fa-black.fa-regular.fa-eye.fa-1.5x
+                  
+            %td
+              = link_to edit_user_path(user) do
+                %span{:title => t('application.edit')}
+                  %i.fa-green.fa-regular.fa-pen-to-square        
+
+            %td 
+              = link_to user, method: :delete do
+                %span{:title => t('application.delete')}
+                  %i.fa-red.fa-solid.fa-trash                                  

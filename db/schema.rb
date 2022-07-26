@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_151608) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_15_154815) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,30 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151608) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "appointments", force: :cascade do |t|
-    t.string "date"
-    t.bigint "doctor_id"
-    t.bigint "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
-  end
-
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
     t.string "password"
     t.string "email"
     t.string "adress"
-    t.integer "block", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "directors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.integer "block", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,47 +57,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_151608) do
     t.string "name"
     t.string "description"
     t.money "cost", scale: 2
-    t.string "isEnable"
+    t.integer "isEnable", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "code"
-    t.integer "speciality"
-    t.bigint "hospital_id"
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "client_id"
+    t.integer "isConfirm", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hospital_id"], name: "index_doctors_on_hospital_id"
+    t.index ["client_id"], name: "index_order_details_on_client_id"
+    t.index ["dish_id"], name: "index_order_details_on_dish_id"
   end
 
-  create_table "hospitals", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "medicines", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.integer "year"
-    t.bigint "director_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["director_id"], name: "index_movies_on_director_id"
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "identification_number"
+    t.string "password"
+    t.string "mail"
+    t.string "address"
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

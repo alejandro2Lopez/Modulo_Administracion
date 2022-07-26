@@ -1,0 +1,23 @@
+= render "layouts/flash"
+!!!
+%html
+  %head
+    = stylesheet_link_tag "session", :media => "all"
+  %body{:style => "overflow-y:hidden"}  
+    = form_with url: sign_in_path do |form|
+      %link{:href => "https://media.gq.com.mx/photos/5c927b45c0e463f033a84935/1:1/w_3508,h_3508,c_limit/restaurante.jpg", :rel => "stylesheet", :type => "text/css"}/
+      .logo
+        %h1
+          =t("activerecord.attributes.user.roles.administrator")
+      .login-block    
+        %div
+          = form.label t('activerecord.attributes.user.name')
+          = form.text_field :name, class: "form-control", placeholder: t('activerecord.attributes.user.name')
+        %div
+          = form.label t('activerecord.attributes.user.password')
+          = form.password_field :password, class: "form-control", placeholder: t('activerecord.attributes.user.password')
+        %div 
+          %button   
+            =t('application.submit')
+
+

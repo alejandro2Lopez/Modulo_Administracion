@@ -4,33 +4,25 @@
   %head
 
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    
+    %title Lenguajes1
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-    %body
-    .area
-    %nav.main-menu
-
-      %ul
-        %h4.colorh1 
-          = t('application.menu_Administrate') 
-      %div.2x
+    - if include_navbar?
+      %body
+      .area
+      %nav.main-menu
+        %ul
+          %h4.colorh1 Administrative menu 
         %ul
           %li
-            %a{:href => "#"}
+            %a{:href => users_path}
               %i.fa.fa-user.fa-2x
               %span.nav-text
 
                 =t('application.manage', model: t('activerecord.modules.user.other'))
-          %li.has-subnav
-            %a{:href => "#"}
-              %i.fa.fa-solid.fa-utensils.fa-2x
-              %span.nav-text
-  
-                =t('application.manage', model: t('activerecord.modules.chef.other'))
           %li.has-subnav
             %a{:href => dishes_path}
               %i.fa.fa-solid.fa-bowl-food.fa-2x
@@ -53,7 +45,12 @@
               %i.fa.fa-solid.fa-clock-rotate-left.fa-2x
               %span.nav-text
                 =t('application.manage', model: t('activerecord.modules.state.other'))
-
+        %ul.logout
+          %li
+            %a{:href => sign_in_path}
+              %i.fa.fa-power-off.fa-2x
+              %span.nav-text
+                Logout
 %body
   %div{:style => "position:relative; padding: 250px 100px; top:-250px;"}
     = yield

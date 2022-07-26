@@ -17,35 +17,26 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
 
-    respond_to do |format|
-      if @client.save
-        format.html { redirect_to client_url(@client), notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: @client }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    if @client.save
+      flash[:success] = 'Client was successfully created.'
+      redirect_to client_url(@client)
+
+    else
+      flash[:danger] = 'Ha ocurrido un problema, intente nuevamente'
+      redirect_to new_client_path
+
     end
   end
 
   def update
-    respond_to do |format|
-      if @client.update(client_params)
-        format.html { redirect_to client_url(@client), notice: 'Client was successfully updated.' }
-        format.json { render :show, status: :ok, location: @client }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    if @client.update(client_params)
+      flash[:success] = 'Client was successfully updated.'
+      redirect_to client_url(@client)
 
-  def destroy
-    @client.destroy
+    else
+      flash[:danger] = 'Ha ocurrido un problema, intente nuevamente'
+      redirect_to new_client_path
 
-    respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

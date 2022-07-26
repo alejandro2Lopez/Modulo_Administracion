@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header
     %p{:style => "color: green"}= notice
@@ -20,7 +21,7 @@
           %th= t('activerecord.attributes.dish.name')
           %th= t('activerecord.attributes.dish.description')
           %th= t('activerecord.attributes.dish.cost')
-          %th= t('activerecord.attributes.dish.enable')
+          %th= t('activerecord.attributes.dish.condition')
           %th= t('activerecord.attributes.dish.image')
           %th
           %th
@@ -31,7 +32,7 @@
             %td= dish.name
             %td= dish.description
             %td= dish.cost
-            %td= t("activerecord.attributes.option.options.#{dish.isEnable}")
+            %td= t("activerecord.attributes.dish.isEnable.#{dish.isEnable}")
             %td= link_to image_tag(dish.image, size:'50'),image_tag(dish.image, size:'100')
             %td
               = link_to  dish_path(dish) do

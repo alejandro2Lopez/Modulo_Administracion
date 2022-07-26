@@ -2,24 +2,24 @@
   .page.header_new
     = form_for @client, validate: true do |f|
       .form-group.ml-4.mr-4
-        = f.label t('activerecord.attributes.client.name'), class: "form-label required" 
+        = f.label t('activerecord.attributes.user.name'), class: "form-label required" 
         %div
           = f.label @client.name, class: "form-control"
       .form-group.ml-4.mr-4
-        = f.label t('activerecord.attributes.client.last_name'), class: "form-label required"
+        = f.label t('activerecord.attributes.user.last_name'), class: "form-label required"
         %div
           = f.label @client.last_name, class: "form-control"
       .form-group.ml-4.mr-4
-        = f.label  t('activerecord.attributes.client.email'), class: "form-label required"
+        = f.label  t('activerecord.attributes.user.mail'), class: "form-label required"
         %div
           = f.label @client.email, class: "form-control"
       .form-group.ml-4.mr-4
-        = f.label  t('activerecord.attributes.client.adress'), class: "form-label required"
+        = f.label  t('activerecord.attributes.user.address'), class: "form-label required"
         %div
           = f.label @client.adress, class: "form-control"
 
       .form-group.ml-4.mr-4 
-        = f.label t('activerecord.attributes.client.block'), class: "form-label required"
+        = f.label t('activerecord.attributes.user.statu'), class: "form-label required"
         = f.select(:block, options_for_select(method_Block, @client.block),
                             {prompt: t('application.select')}, class: 'form-control')
 

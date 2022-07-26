@@ -4,7 +4,7 @@ class CreateDishes < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :description
       t.money :cost
-      t.string :isEnable
+      t.integer :isEnable , default: 0
 
       t.timestamps
     end

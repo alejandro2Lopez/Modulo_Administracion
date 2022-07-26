@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header_new
     %h2 
@@ -6,24 +7,24 @@
       %img{:height => "250", :src => "https://img.icons8.com/windows/512/contacts.png", :width => "250"}/   
       .container
         %h5
-          =t('activerecord.attributes.client.full_name')
+          =t('activerecord.attributes.user.full_name')
           %p 
             = "#{@client.name}  #{@client.last_name}" 
         %h5 
-          =t('activerecord.attributes.client.email')
+          =t('activerecord.attributes.user.mail')
         %h5 
           %p 
             = @client.email
         %h5
-          =t('activerecord.attributes.client.adress')
+          =t('activerecord.attributes.user.address')
         %h5 
           %p 
             =  @client.adress
         %h5
-          =t('activerecord.attributes.client.block')
+          =t('activerecord.attributes.user.statu')
         %h5 
           %p 
-            =  @client.block
+            = t("activerecord.attributes.dish.isEnable.#{@client.block}") 
     .row.mt-3
       .offset-3.col-3
         = link_to t('application.back'), clients_path, class: "button_Back button_Back"

@@ -1,3 +1,4 @@
+= render "layouts/flash"
 .div.m-4
   .page.header
     %h2 Dish
@@ -19,10 +20,10 @@
             %p 
               = @dish.cost
           %h6
-            =t('activerecord.attributes.dish.enable')
+            =t('activerecord.attributes.dish.condition')
           %h7 
             %p 
-              =  @dish.isEnable
+              =  t("activerecord.attributes.dish.isEnable.#{@dish.isEnable}")
     .row.mt-3
       .offset-3.col-3
         = link_to t('application.back'), dishes_path, class: "button_Back button_Back"
