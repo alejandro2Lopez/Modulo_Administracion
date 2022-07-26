@@ -18,14 +18,14 @@ module Api
     def create
       puts params[:isConfirm]
       if params[:isConfirm] == 1
-        @ords = OrderDetail.all
-        @order_dils = @ord.map do |order_dil|
+          @ords = OrderDetail.all
+          @order_dils = @ords.map do |_order_dil|
           @order_d = OrderDetail.find_by(client_id: params[:client_id])
           @dishess = + @order_d.dish.name, ',', @dishess
-          @order_d.client.name
           @order_d.destroy
         end
         puts @dishess, params[:cost]
+        Order.create!(dishesDesc: @dishess.to_s, cost: params[:cost], date: Time.now, state: 1, client_id: params[:client_id])
       else
         @order_detail = OrderDetail.new(order_detail_params)
         if @order_detail.save
